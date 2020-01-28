@@ -1,0 +1,48 @@
+{% extends 'sales/base.html' %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% block extralinks %} 
+<style>
+  .text_ellipsis {
+    width: 16em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
+{% endblock %}
+{% block content %}
+{% load common_tags %}
+<!-- <a href="{% url "common:logout" %}"><button class="btn btn-primary" type="button">Logout</button></a> -->
+<div class="row marl justify-content-center">
+  <div class="col-md-9">
+    <!-- count_blocks_row starts here -->
+    <div class="row count_blocks_row">
+      <div class="col-md-3">
+        <div class="item green">
+          <a href="{% url 'contacts:list' %}">
+            <div class="title">Contacts</div>
+            <div class="count">{{contacts_count}}</div>
+          </a>
+          <!-- <div class="more"><a href="#">Go Live</a></div> -->
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="item red">
+          <a href="{% url 'leads:list' %}">
+            <div class="title">Leads</div>
+            <div class="count">{{leads_count|length}}</div>
+            <!-- <div class="more"><a href="#">Go Live</a></div> -->
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- count_blocks_row ends here -->
+  </div>
+</div>
+
+{% endblock %}
+{% block js_block %}
+<script type="text/javascript">
+</script>
+{% endblock js_block %}
